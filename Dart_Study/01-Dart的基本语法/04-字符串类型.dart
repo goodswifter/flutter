@@ -8,12 +8,12 @@ main(List<String> args) {
   nba
   """;
 
-  // 2.字符串和表达式进行拼接
+  // 2. 字符串和表达式进行拼接
   var name = "why";
   var age = 19;
   var height = 1.88;
 
-  // 强调: ${变量}, 那么{}可以省略
+  // 强调: ${变量}, 那么{}可以省略, 如果是表达式不能省略
   var message1 = "my name is $name, age is $age, height is $height";
   var message2 = "name is $name, type is ${name.runtimeType}";
   print(message1);
