@@ -26,20 +26,29 @@ main(List<String> args) {
   final date2 = DateTime.now();
 
   // 2.5 final 用途更多一点
-  // 判断p1 和 p2 是不是同一个对象
-  // 答案: 不是同一个对象
+  // 判断两个对象是不是同一个对象
   final p1 = Person("abc");
   final p2 = Person("abc");
-  print(identical(p1, p2));
+  print(identical(p1, p2)); // false
 
-  // 答案: 是同一个对象
   const p3 = const Person("why");
 	const p4 = const Person("why");
-  print(identical(p3, p4));
+  print(identical(p3, p4)); // true
+
+  // 如果前面用const修饰, 后面的const可以省略
+  const p5 = Person("why");
+	const p6 = Person("why");
+  print(identical(p5, p6)); // true
+
+  // 如果
+  final p7 = const Person("why");
+	final p8 = const Person("why");
+  print(identical(p7, p8)); // true
 }
 
 // Person 类
 class Person {
   final String name;
+
   const Person(this.name);
 }
