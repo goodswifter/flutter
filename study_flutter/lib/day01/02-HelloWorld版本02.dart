@@ -9,7 +9,6 @@ main() => runApp(MyApp());
 /// 有状态的Widget: StatefulWidget 在运行过程中有一些状态(data)需要改变
 /// 无状态的Widget: StatelessWidget 内容是确定没有状态(data)的改变
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
