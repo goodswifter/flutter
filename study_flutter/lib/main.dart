@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
           onPressed: () => print("FloatingActionButton Click"),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-
         body: ADHomeContent(),
       ),
     );
