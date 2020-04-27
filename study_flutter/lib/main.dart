@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 main() => runApp(MyApp());
@@ -17,6 +15,7 @@ class MyApp extends StatelessWidget {
           onPressed: () => print("FloatingActionButton Click"),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
         body: ADHomeContent(),
       ),
     );
