@@ -5,7 +5,7 @@ main(List<String> args) {
 
   Future(() => print("task1"));
 	
-  // 只要有Future对象, 就会根据创建Future的顺序加入到事件队列中
+  // 只要有创建Future对象, 就会根据Future创建的顺序加入到事件队列中
   final future = Future(() => null);
 
   Future(() => print("task2")).then((_) {
