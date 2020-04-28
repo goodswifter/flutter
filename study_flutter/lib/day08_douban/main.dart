@@ -1,5 +1,6 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:study_flutter/day07/service/http_request.dart';
 
 main() => runApp(MyApp());
 
@@ -16,31 +17,13 @@ class MyApp extends StatelessWidget {
           onPressed: () => print("FloatingActionButton Click"),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-
         body: ADHomeContent(),
       ),
     );
   }
 }
 
-class ADHomeContent extends StatefulWidget {
-  @override
-  _ADHomeContentState createState() => _ADHomeContentState();
-}
-
-class _ADHomeContentState extends State<ADHomeContent> {
-
-  @override
-  void initState() {
-    super.initState();
-
-    HttpRequest.request("get", params: {"name" : "zad"}).then((res) {
-      print(res);
-    }).catchError((err) {
-      print(err);
-    });
-  }
-
+class ADHomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();
