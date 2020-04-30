@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:study_flutter/day08_douban/pages/main/main.dart';
+import 'package:study_flutter/day08_douban/widgets/dashed_line.dart';
+import 'package:study_flutter/day08_douban/widgets/star_rating.dart';
 
 main() => runApp(MyApp());
 
@@ -10,14 +13,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter Demo"),
+          title: Text("首页"),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => print("FloatingActionButton Click"),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         body: ADHomeContent(),
+      ),
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        // splash: 水花效果
+        // transparent: 透明的
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent
       ),
     );
   }
@@ -26,6 +31,6 @@ class MyApp extends StatelessWidget {
 class ADHomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ADMainPage();
   }
 }

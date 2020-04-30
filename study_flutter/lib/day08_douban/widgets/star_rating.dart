@@ -32,7 +32,8 @@ class _ADStarRatingState extends State<ADStarRating> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Row(mainAxisSize: MainAxisSize.min, children: buildUnselectedStar(),)
+        Row(mainAxisSize: MainAxisSize.min, children: buildUnselectedStar(),),
+        Row(mainAxisSize: MainAxisSize.min, children: buildSelectedStar(),),
       ],
     );
   }
@@ -45,4 +46,50 @@ class _ADStarRatingState extends State<ADStarRating> {
   }
 
   // 创建选中的星
+  List<Widget> buildSelectedStar() {
+    // 1. 创建stars
+    List<Widget> stars = [];
+    final star = widget.selectedImage;
+
+    // 2. 构建完全填充的stars
+    // 1个star对应的分数
+    double oneValue = widget.maxRating / widget.count;
+    // 完全填充的star的个数
+    int entireCount = (widget.rating / oneValue).floor();
+    for(var i = 0; i < entireCount; i++) {
+      stars.add(star);
+    }
+
+    // 3. 构建部分填充的star
+    // 最后部分填充star的宽度
+    double lastWidth = (((widget.rating) / oneValue) - entireCount) * widget.size;
+    final lastStar = ClipRect(
+      clipper: ADStarClipper(lastWidth),
+      child: star,
+    );
+    stars.add(lastStar);
+
+    if (stars.length > widget.count) {
+      stars.sublist(0, widget.count);
+    }
+
+    return stars;
+  }
+}
+
+class ADStarClipper extends CustomClipper<Rect> {
+  double width;
+
+  ADStarClipper(this.width);
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTRB(0, 0, width, size.height);
+  }
+
+  @override
+  bool shouldReclip(ADStarClipper oldClipper) {
+    return oldClipper.width != this.width;
+  }
+
 }
