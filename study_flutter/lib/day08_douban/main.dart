@@ -11,19 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("首页"),
-        ),
-        body: ADHomeContent(),
-      ),
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Colors.red,
-        // splash: 水花效果
-        // transparent: 透明的
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent
+          primarySwatch: Colors.red,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent
       ),
+      home: ADMainPage(),
     );
   }
 }

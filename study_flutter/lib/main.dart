@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/day07/service/http_request.dart';
+import 'package:study_flutter/day08_douban/service/http_request.dart';
 
 main() => runApp(MyApp());
 
@@ -34,11 +34,17 @@ class _ADHomeContentState extends State<ADHomeContent> {
   void initState() {
     super.initState();
 
-    HttpRequest.request("get", params: {"name" : "zad"}).then((res) {
+    HttpRequest.request("/movie/top250").then((res) {
       print(res);
     }).catchError((err) {
-      print(err);
+      print("=== + ${err.toString()}");
     });
+
+//    HttpRequest.request("/movie/top250").then((res) {
+//      print(res);
+//    }).catchError((err) {
+//      print(err);
+//    });
   }
 
   @override
