@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_flutter/day08_douban/model/home_model.dart';
-import 'package:study_flutter/day08_douban/pages/main/initialize_item.dart';
+import 'package:study_flutter/day08_douban/service/config.dart';
 import 'package:study_flutter/day08_douban/widgets/dashed_line.dart';
 import 'package:study_flutter/day08_douban/widgets/star_rating.dart';
 
@@ -14,15 +14,19 @@ class ADHomeMovieItem extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 8, color: Color(0xffcccccc)))
-      ),
+          border:
+              Border(bottom: BorderSide(width: 8, color: Color(0xffcccccc)))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           buildHeader(),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           buildContent(),
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           buildFooter()
         ],
       ),
@@ -34,10 +38,10 @@ class ADHomeMovieItem extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 238, 205, 144),
-        borderRadius: BorderRadius.circular(3)
-      ),
-      child: Text("No.${movie.rank}",
+          color: Color.fromARGB(255, 238, 205, 144),
+          borderRadius: BorderRadius.circular(3)),
+      child: Text(
+        "No.${movie.rank}",
         style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 131, 95, 36)),
       ),
     );
@@ -49,11 +53,17 @@ class ADHomeMovieItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         buildContentImage(),
-        SizedBox(width: 8,),
+        SizedBox(
+          width: 8,
+        ),
         buildContentInfo(),
-        SizedBox(width: 8,),
+        SizedBox(
+          width: 8,
+        ),
         buildContentLine(),
-        SizedBox(width: 8,),
+        SizedBox(
+          width: 8,
+        ),
         buildContentWish()
       ],
     );
@@ -61,9 +71,23 @@ class ADHomeMovieItem extends StatelessWidget {
 
   // 2.1 内容的图片
   Widget buildContentImage() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(8),
-      child: Image.network(movie.imageURL, height: 150,),
+    return Container(
+      height: 150,
+      width: 100,
+      child: Stack(
+        children: <Widget>[
+          Center(child: CircularProgressIndicator()),
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: FadeInImage.assetNetwork(
+                placeholder: kAssetPlaceholderImage,
+                image: movie.imageURL,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -74,9 +98,13 @@ class ADHomeMovieItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           buildContentInfoTitle(),
-          SizedBox(width: 8,),
+          SizedBox(
+            width: 8,
+          ),
           buildContentInfoRate(),
-          SizedBox(width: 8,),
+          SizedBox(
+            width: 8,
+          ),
           buildContentInfoDesc(),
         ],
       ),
@@ -85,20 +113,23 @@ class ADHomeMovieItem extends StatelessWidget {
 
   // 2.2.1 内容信息的标题
   Widget buildContentInfoTitle() {
-    return Text.rich(TextSpan(
-      children: [
-        WidgetSpan(
+    List<WidgetSpan> titleRuneList = movie.title.runes.map((rune) {
+      return WidgetSpan(child: Text(String.fromCharCode(rune), style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)), alignment: PlaceholderAlignment.middle);
+    }).toList();
+
+    return Text.rich(TextSpan(children: [
+      WidgetSpan(
           child: Icon(
             Icons.play_circle_outline,
             color: Colors.pink,
             size: 30,
           ),
-          alignment: PlaceholderAlignment.middle
-    ),
-    WidgetSpan(child: Text(movie.title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),), alignment: PlaceholderAlignment.middle),
-    WidgetSpan(child: Text("(${movie.playDate})"), style: TextStyle(fontSize: 18, color: Colors.grey))
-      ]
-    ));
+          alignment: PlaceholderAlignment.middle),
+      ...titleRuneList,
+      WidgetSpan(
+          child: Text("(${movie.playDate})"),
+          style: TextStyle(fontSize: 18, color: Colors.grey),)
+    ]),);
   }
 
   // 2.2.2 内容信息的评分
@@ -160,10 +191,11 @@ class ADHomeMovieItem extends StatelessWidget {
             width: 40,
             height: 40,
           ),
-          Text("想看", style: TextStyle(
-              fontSize: 18,
-              color: Color.fromARGB(255, 235, 170, 60)
-          ),)
+          Text(
+            "想看",
+            style: TextStyle(
+                fontSize: 18, color: Color.fromARGB(255, 235, 170, 60)),
+          )
         ],
       ),
     );
@@ -175,9 +207,7 @@ class ADHomeMovieItem extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Color(0xfff2f2f2),
-        borderRadius: BorderRadius.circular(8)
-      ),
+          color: Color(0xfff2f2f2), borderRadius: BorderRadius.circular(8)),
       child: Text(
         movie.originalTitle,
         style: TextStyle(fontSize: 20, color: Color(0xff666666)),
