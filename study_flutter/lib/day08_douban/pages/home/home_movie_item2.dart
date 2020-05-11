@@ -56,23 +56,15 @@ class ADHomeMovieItem extends StatelessWidget {
         SizedBox(
           width: 8,
         ),
-        Expanded(
-          child: IntrinsicHeight(
-            child: Row(
-              children: <Widget>[
-                buildContentInfo(),
-                SizedBox(
-                  width: 8,
-                ),
-                buildContentLine(),
-                SizedBox(
-                  width: 8,
-                ),
-                buildContentWish()
-              ],
-            ),
-          ),
-        )
+        buildContentInfo(),
+        SizedBox(
+          width: 8,
+        ),
+        buildContentLine(),
+        SizedBox(
+          width: 8,
+        ),
+        buildContentWish()
       ],
     );
   }
@@ -177,7 +169,7 @@ class ADHomeMovieItem extends StatelessWidget {
   // 2.3 内容的虚线
   Widget buildContentLine() {
     return Container(
-//      height: 100,
+      height: 100,
       child: ADDashedLine(
         axis: Axis.vertical,
         dashedWidth: .4,

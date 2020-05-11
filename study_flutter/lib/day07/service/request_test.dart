@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:study_flutter/day08_douban/service/http_request.dart';
 
 main() => runApp(MyApp());
 
@@ -8,13 +9,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("key的案例解析"),
+          title: Text("Flutter Demo"),
         ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.delete),
-          onPressed: (() {
-
-          }),
+          child: Icon(Icons.add),
+          onPressed: () => print("FloatingActionButton Click"),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
@@ -30,7 +29,17 @@ class ADHomeContent extends StatefulWidget {
 }
 
 class _ADHomeContentState extends State<ADHomeContent> {
-  final List<String> names = ["aaaa", "bbbb", "cccc"];
+
+  @override
+  void initState() {
+    super.initState();
+
+    HttpRequest.request("/movie/top250").then((res) {
+      print(res);
+    }).catchError((err) {
+      print("=== + ${err.toString()}");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
