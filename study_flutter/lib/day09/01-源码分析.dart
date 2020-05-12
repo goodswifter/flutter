@@ -22,7 +22,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class ADHomeContent extends StatelessWidget {
+class ADHomeContent extends StatefulWidget {
+  @override
+  _ADHomeContentState createState() => _ADHomeContentState();
+}
+
+class _ADHomeContentState extends State<ADHomeContent> {
   @override
   Widget build(BuildContext context) {
     // 1.自己写Widget
@@ -50,6 +55,6 @@ class ADHomeContent extends StatelessWidget {
     // Padding -> createRenderObject -> RenderPadding -> RenderBox -> RenderObject
 //    Padding();
 //    RenderObjectWidget
-    return Container();
+    return Padding();
   }
 }
