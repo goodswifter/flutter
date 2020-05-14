@@ -4,7 +4,6 @@ import 'package:study_flutter/day10/viewmodel/counter_view_model.dart';
 import 'package:study_flutter/day10/viewmodel/initialize_providers.dart';
 import 'package:study_flutter/day10/viewmodel/user_view_model.dart';
 
-
 main() {
   runApp(
       MultiProvider(
