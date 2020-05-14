@@ -7,10 +7,10 @@ import 'package:study_flutter/day10/viewmodel/user_view_model.dart';
 
 main() {
   runApp(
-      MultiProvider(
-        providers: providers,
-        child: MyApp(),
-      )
+    MultiProvider(
+      providers: providers,
+      child: MyApp(),
+    )
   );
 }
 
