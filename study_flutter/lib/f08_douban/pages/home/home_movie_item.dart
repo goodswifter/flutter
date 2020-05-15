@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/day08_douban/model/home_model.dart';
-import 'package:study_flutter/day08_douban/service/config.dart';
-import 'package:study_flutter/day08_douban/widgets/dashed_line.dart';
-import 'package:study_flutter/day08_douban/widgets/star_rating.dart';
+import '../../model/home_model.dart';
+import '../../service/config.dart';
+import '../../widgets/dashed_line.dart';
+import '../../widgets/star_rating.dart';
 
 class ADHomeMovieItem extends StatelessWidget {
   final MovieItem movie;
@@ -56,15 +56,23 @@ class ADHomeMovieItem extends StatelessWidget {
         SizedBox(
           width: 8,
         ),
-        buildContentInfo(),
-        SizedBox(
-          width: 8,
-        ),
-        buildContentLine(),
-        SizedBox(
-          width: 8,
-        ),
-        buildContentWish()
+        Expanded(
+          child: IntrinsicHeight(
+            child: Row(
+              children: <Widget>[
+                buildContentInfo(),
+                SizedBox(
+                  width: 8,
+                ),
+                buildContentLine(),
+                SizedBox(
+                  width: 8,
+                ),
+                buildContentWish()
+              ],
+            ),
+          ),
+        )
       ],
     );
   }
@@ -169,7 +177,7 @@ class ADHomeMovieItem extends StatelessWidget {
   // 2.3 内容的虚线
   Widget buildContentLine() {
     return Container(
-      height: 100,
+//      height: 100,
       child: ADDashedLine(
         axis: Axis.vertical,
         dashedWidth: .4,

@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:study_flutter/day10/model/user_info.dart';
+import '../model/user_info.dart';
 
 class ADUserViewModel extends ChangeNotifier {
   UserInfo _user;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/day08_douban/model/home_model.dart';
-import 'package:study_flutter/day08_douban/pages/home/home_movie_item.dart';
-import 'package:study_flutter/day08_douban/service/home_request.dart';
+import '../../model/home_model.dart';
+import 'home_movie_item.dart';
+import '../../service/home_request.dart';
 
 class ADHomeContent extends StatefulWidget {
   @override

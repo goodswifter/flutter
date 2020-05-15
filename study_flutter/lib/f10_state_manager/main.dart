@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:study_flutter/day10/viewmodel/counter_view_model.dart';
-import 'package:study_flutter/day10/viewmodel/initialize_providers.dart';
-import 'package:study_flutter/day10/viewmodel/user_view_model.dart';
+import 'viewmodel/counter_view_model.dart';
+import 'viewmodel/initialize_providers.dart';
+import 'viewmodel/user_view_model.dart';
 
 main() {
   runApp(

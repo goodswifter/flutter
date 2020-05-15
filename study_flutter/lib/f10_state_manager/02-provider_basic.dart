@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:study_flutter/day10/viewmodel/counter_view_model.dart';
+import 'viewmodel/counter_view_model.dart';
 
 /// provider的使用过程
 /// 1. 创建自己需要共享的数据, 并继承ChangeNotifier

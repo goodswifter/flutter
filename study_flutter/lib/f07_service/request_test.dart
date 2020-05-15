@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/day08_douban/service/http_request.dart';
+import 'http_request.dart';
 
 main() => runApp(MyApp());
 

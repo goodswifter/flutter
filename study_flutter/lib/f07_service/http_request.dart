@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:study_flutter/day08_douban/service/config.dart';
+import 'config.dart';
 
 class HttpRequest {
   // 基础设置
