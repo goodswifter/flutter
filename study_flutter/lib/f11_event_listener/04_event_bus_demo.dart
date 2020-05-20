@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '03-event_bus.dart';
+import '03_event_bus.dart';
 
 // 1. 创建全局的EventBus对象
 class UserInfo {

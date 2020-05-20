@@ -48,8 +48,8 @@ class _ADHomeContentState extends State<ADHomeContent> with SingleTickerProvider
 
     // 设置动画控制器
     _controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 2)
+        vsync: this,
+        duration: Duration(seconds: 2)
     );
 
     // 设置曲线动画对象
