@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 main() => runApp(MyApp());
@@ -15,32 +17,17 @@ class ADHomeContent extends StatefulWidget {
   @override
   _ADHomeContentState createState() => _ADHomeContentState();
 }
-/*
-  1. Animation: 抽象类
-  * 监听动画状态的改变
-  * value
-  * status
 
-  2. AnimationController继承自Animation
-  * 作用: 控制动画的相关执行操作
-  * vsync: 同步信号(this -> with SingleTickerProviderStateMixin)
-  * forward(): 向前执行动画
-  * reverse(): 反转执行动画
-
-  3. CurvedAnimation:
-  * 作用: 设置动画执行的速率(速度曲线)
-
-  4. Tween: 设置动画执行的value范围
-  * begin: 开始值
-  * end: 结束值
- */
 class _ADHomeContentState extends State<ADHomeContent> with SingleTickerProviderStateMixin {
   // 1. 创建动画控制器
   AnimationController _controller;
   // 2. 创建曲线动画对象
-  Animation _curvedAnimation;
+  Animation _curvedAnim;
   // 3. 创建值范围的动画对象
-  Animation _tweenAnimation;
+  Animation _sizeAnim;
+  Animation _colorAnim;
+  Animation _opacityAnim;
+  Animation _radiansAnim;
 
   @override
   void initState() {
@@ -53,15 +40,18 @@ class _ADHomeContentState extends State<ADHomeContent> with SingleTickerProvider
     );
 
     // 设置曲线动画对象
-    _curvedAnimation = CurvedAnimation(parent: _controller, curve: Curves.linear);
+//    _curvedAnim = CurvedAnimation(parent: _controller, curve: Curves.linear);
 
     // 设置值范围的动画对象
-    _tweenAnimation = Tween(begin: 50.0, end: 150.0).animate(_curvedAnimation);
-
-    // 监听动画值的变化
-    _controller.addListener(() {
-      setState(() {});
-    });
+    // 3.Tween
+    // 3.1.创建size的tween
+    _sizeAnim = Tween(begin: 50.0, end: 200.0).animate(_controller);
+    // 3.2.创建color的tween
+    _colorAnim = ColorTween(begin: Colors.orange, end: Colors.purple).animate(_controller);
+    // 3.3.创建opacity的tween
+    _opacityAnim = Tween(begin: 0.0, end: 1.0).animate(_controller);
+    // 3.4.创建radians的tween
+    _radiansAnim = Tween(begin: 0.0, end: 2 * pi).animate(_controller);
 
     // 监听动画状态的变化
     _controller.addStatusListener((status) {
@@ -75,9 +65,10 @@ class _ADHomeContentState extends State<ADHomeContent> with SingleTickerProvider
 
   @override
   Widget build(BuildContext context) {
+    print("执行_HYHomePageState的build方法");
     return Scaffold(
       appBar: AppBar(
-        title: Text("动画基础"),
+        title: Text("交织动画"),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.play_arrow),
@@ -94,14 +85,30 @@ class _ADHomeContentState extends State<ADHomeContent> with SingleTickerProvider
         },
       ),
       body: Center(
-        child: Icon(Icons.favorite, color: Colors.red, size: _tweenAnimation.value,),
+        /**
+         * 1. 大小变化动画
+         * 2. 颜色变化动画
+         * 3. 透明度变化动画
+         * 4. 形变: 旋转
+         */
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (ctx, child) {
+            return Opacity(
+              opacity: _opacityAnim.value,
+              child: Transform(
+                transform: Matrix4.rotationZ(_radiansAnim.value),
+                alignment: Alignment.center,
+                child: Container(
+                  width: _sizeAnim.value,
+                  height: _sizeAnim.value,
+                  color: _colorAnim.value,
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
   }
 }

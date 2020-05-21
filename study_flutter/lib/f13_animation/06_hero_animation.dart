@@ -26,19 +26,19 @@ class ADHomePage extends StatelessWidget {
       body: Center(
         child: GridView(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
-            childAspectRatio: 16 / 9
+              crossAxisCount: 2,
+              crossAxisSpacing: 8,
+              mainAxisSpacing: 8,
+              childAspectRatio: 16 / 9
           ),
           children: List.generate(20, (index) {
             final imageURL = "https://picsum.photos/500/500?random=$index";
             return GestureDetector(
               onTap: () {
                 Navigator.of(context).push(PageRouteBuilder(
-                  pageBuilder: (ctx, anim1, anim2) {
-                    return FadeTransition(opacity: anim1, child: ADImageDetailPage(imageURL),);
-                  }
+                    pageBuilder: (ctx, anim1, anim2) {
+                      return FadeTransition(opacity: anim1, child: ADImageDetailPage(imageURL),);
+                    }
                 ));
               },
               child: Hero(
