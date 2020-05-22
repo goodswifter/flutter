@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:study_flutter/f15_screen_fit/shared/size_fit.dart';
+import 'extension/double_extension.dart';
+import 'extension/int_extension.dart';
 
 main() => runApp(MyApp());
 
@@ -39,13 +41,13 @@ class ADHomePage extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          width: ADSizeFit.setRpx(400),
-          height: ADSizeFit.setPx(200),
+          width: 200.px,
+          height: 200.0.px,
           color: Colors.red,
           alignment: Alignment.center,
-          child: Text("Hello World", style: TextStyle(fontSize: 40 * ADSizeFit.rpx),),
+          child: Text("Hello World", style: TextStyle(fontSize: 20.px,),),
         ),
-      ),
+      )
     );
   }
 }
