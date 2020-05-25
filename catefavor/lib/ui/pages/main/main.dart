@@ -1,5 +1,6 @@
 import 'package:catefavor/ui/pages/main/initialize_item.dart';
 import 'package:flutter/material.dart';
+import '../../../core/extension/int_extension.dart';
 
 class ADMainPage extends StatefulWidget {
   static const String routeName = "/";
@@ -19,8 +20,8 @@ class _ADMainPageState extends State<ADMainPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        selectedFontSize: 14,
-        unselectedFontSize: 14,
+        selectedFontSize: 14.px,
+        unselectedFontSize: 14.px,
         items: items,
         onTap: (index) {
           setState(() => _currentIndex = index);

@@ -1,5 +1,4 @@
 import 'package:catefavor/core/router/router.dart';
-import 'package:catefavor/ui/pages/main/main.dart';
 import 'package:catefavor/ui/shared/app_theme.dart';
 import 'package:catefavor/ui/shared/size_fit.dart';
 import 'package:flutter/material.dart';

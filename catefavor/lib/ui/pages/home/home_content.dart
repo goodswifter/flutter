@@ -1,6 +1,7 @@
 import 'package:catefavor/core/model/category_model.dart';
 import 'package:catefavor/core/services/json_parse.dart';
 import 'package:flutter/material.dart';
+import '../../../core/extension/int_extension.dart';
 
 class ADHomeContent extends StatefulWidget {
   @override
@@ -23,12 +24,12 @@ class _ADHomeContentState extends State<ADHomeContent> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.all(15.px),
       itemCount: _categeries.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
+        crossAxisSpacing: 8.px,
+        mainAxisSpacing: 8.px,
         childAspectRatio: 1.5
       ),
       itemBuilder: (ctx, index) {
@@ -43,7 +44,7 @@ class _ADHomeContentState extends State<ADHomeContent> {
           ),
           decoration: BoxDecoration(
             color: bgColor,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.px),
             // 渐变
             gradient: LinearGradient(
               colors: [
