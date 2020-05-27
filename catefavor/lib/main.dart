@@ -1,4 +1,5 @@
 import 'package:catefavor/core/router/router.dart';
+import 'package:catefavor/core/viewmodel/favor_view_model.dart';
 import 'package:catefavor/core/viewmodel/meal_view_model.dart';
 import 'package:catefavor/ui/shared/app_theme.dart';
 import 'package:catefavor/ui/shared/size_fit.dart';
@@ -6,8 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 main() => runApp(
-  ChangeNotifierProvider(
-    create: (ctx) => ADMealViewModel(),
+  MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (ctx) => ADMealViewModel(),),
+      ChangeNotifierProvider(create: (ctx) => ADFavorViewModel(),),
+    ],
     child: MyApp(),
   )
 );

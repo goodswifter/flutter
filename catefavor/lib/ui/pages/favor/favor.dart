@@ -1,3 +1,4 @@
+import 'package:catefavor/ui/pages/favor/favor_content.dart';
 import 'package:flutter/material.dart';
 
 class ADFavorPage extends StatelessWidget {
@@ -7,11 +8,7 @@ class ADFavorPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("我的收藏"),
       ),
-      body: Center(
-        child: Text(
-            "我的收藏"
-        ),
-      ),
+      body: ADFavorContent(),
     );
   }
 }

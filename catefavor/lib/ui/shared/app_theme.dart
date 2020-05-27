@@ -6,20 +6,22 @@ class ADAppTheme {
   static const double smallFontSize = 16;
   static const double normalFontSize = 22;
   static const double largeFontSize = 24;
+  static const double xlargeFontSize = 28;
 
-  static final Color normalTextColor = Colors.red;
+  static final Color normalTextColor = Colors.black87;
   static final Color darkTextColor = Colors.green;
-
 
   static final ThemeData normalTheme = ThemeData(
       primarySwatch: Colors.pink,
+      accentColor: Colors.amber,
       // 设置背景颜色
       canvasColor: Color.fromRGBO(255, 254, 222, 1),
       textTheme: TextTheme(
         bodyText2: TextStyle(fontSize: normalFontSize, color: normalTextColor),
-        headline4: TextStyle(fontSize: smallFontSize, color: Colors.black87),
-        headline3: TextStyle(fontSize: normalFontSize, color: Colors.black87),
-        headline2: TextStyle(fontSize: largeFontSize, color: Colors.black87),
+        headline4: TextStyle(fontSize: smallFontSize, color: normalTextColor),
+        headline3: TextStyle(fontSize: normalFontSize, color: normalTextColor),
+        headline2: TextStyle(fontSize: largeFontSize, color: normalTextColor, fontWeight: FontWeight.w400),
+        headline1: TextStyle(fontSize: xlargeFontSize, color: normalTextColor, fontWeight: FontWeight.w400),
       )
   );
 

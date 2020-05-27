@@ -1,7 +1,10 @@
 import 'package:catefavor/core/model/meal_model.dart';
-import 'package:catefavor/ui/pages/detail/detail.dart';
+import 'package:catefavor/core/viewmodel/favor_view_model.dart';
+import 'package:catefavor/core/viewmodel/meal_view_model.dart';
+import 'package:catefavor/ui/pages/home/detail/detail.dart';
 import 'package:flutter/material.dart';
-import '../../../core/extension/int_extension.dart';
+import 'package:catefavor/core/extension/int_extension.dart';
+import 'package:provider/provider.dart';
 import 'meal_content_operation_item.dart';
 
 final cardRadius = 12.px;
@@ -16,7 +19,7 @@ class ADMealContentItem extends StatelessWidget {
     return GestureDetector(
       child: Card(
         margin: EdgeInsets.all(10.px),
-        elevation: 5,
+        elevation: 5.px,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(cardRadius)),
         child: Column(
           children: <Widget>[
@@ -42,8 +45,8 @@ class ADMealContentItem extends StatelessWidget {
           child: Image.network(_meal.imageUrl, width: double.infinity, height: 250.px, fit: BoxFit.cover,)
         ),
         Positioned(
-          right: 10,
-          bottom: 5,
+          right: 10.px,
+          bottom: 5.px,
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 10.px, vertical: 5.px),
             decoration: BoxDecoration(
@@ -58,16 +61,32 @@ class ADMealContentItem extends StatelessWidget {
   }
 
   Widget itemOperationInfo() {
-    return Padding(
-      padding: EdgeInsets.all(16.px),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          ADOperationItem(Icon(Icons.schedule), "${_meal.duration}分钟"),
-          ADOperationItem(Icon(Icons.restaurant), _meal.complexStr),
-          ADOperationItem(Icon(Icons.favorite), "未收藏"),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: <Widget>[
+        ADOperationItem(Icon(Icons.schedule), "${_meal.duration}分钟"),
+        ADOperationItem(Icon(Icons.restaurant), _meal.complexStr),
+        buildFavorItem(),
+      ],
+    );
+  }
+
+  Widget buildFavorItem() {
+    return Consumer<ADFavorViewModel>(
+      builder: (ctx, favorVM, child) {
+        // 1.判断是否收藏状态
+        final iconData = favorVM.isFavor(_meal) ? Icons.favorite : Icons.favorite_border;
+        final favorColor = favorVM.isFavor(_meal) ? Colors.red : Colors.black;
+        final title = favorVM.isFavor(_meal)? "收藏" : "未收藏";
+        return GestureDetector(
+          child: ADOperationItem(
+            Icon(iconData, color: favorColor,),
+            title,
+            textColor: favorColor,
+          ),
+          onTap: () => favorVM.handleMeals(_meal),
+        );
+      },
     );
   }
 }

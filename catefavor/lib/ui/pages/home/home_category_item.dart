@@ -1,5 +1,5 @@
 import 'package:catefavor/core/model/category_model.dart';
-import 'package:catefavor/ui/pages/meal/meal.dart';
+import 'package:catefavor/ui/pages/home/meal/meal.dart';
 import 'package:flutter/material.dart';
 import '../../../core/extension/int_extension.dart';
 

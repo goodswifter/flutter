@@ -1,3 +1,5 @@
+import 'package:catefavor/ui/pages/home/drawer/home_drawer.dart';
+import 'package:catefavor/ui/pages/home/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'home_content.dart';
@@ -6,8 +8,9 @@ class ADHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("美味佳肴"),),
+      appBar: ADHomeAppBar(context),
       body: ADHomeContent(),
+      drawer: ADHomeDrawer(),
     );
   }
 }

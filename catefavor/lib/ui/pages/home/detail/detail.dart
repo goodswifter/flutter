@@ -1,5 +1,8 @@
 import 'package:catefavor/core/model/meal_model.dart';
+import 'package:catefavor/ui/pages/home/detail/detail_content.dart';
 import 'package:flutter/material.dart';
+
+import 'detail_float_button.dart';
 
 class ADDetailPage extends StatelessWidget {
   static final String routeName = "/detail";
@@ -11,7 +14,8 @@ class ADDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(meal.title),
       ),
-      body: Text(meal.title),
+      body: ADDetailContent(meal),
+      floatingActionButton: ADDetailFloatingButton(meal),
     );
   }
 }

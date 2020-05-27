@@ -1,5 +1,5 @@
 import 'package:catefavor/core/model/category_model.dart';
-import 'package:catefavor/ui/pages/meal/meal_content.dart';
+import 'package:catefavor/ui/pages/home/meal/meal_content.dart';
 import 'package:flutter/material.dart';
 
 class ADMealPage extends StatelessWidget {

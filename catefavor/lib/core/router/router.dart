@@ -1,6 +1,6 @@
-import 'package:catefavor/ui/pages/detail/detail.dart';
+import 'package:catefavor/ui/pages/home/detail/detail.dart';
 import 'package:catefavor/ui/pages/main/main.dart';
-import 'package:catefavor/ui/pages/meal/meal.dart';
+import 'package:catefavor/ui/pages/home/meal/meal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../ui/pages/unknown/unknown.dart';
