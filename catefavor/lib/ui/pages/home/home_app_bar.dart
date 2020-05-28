@@ -7,7 +7,7 @@ class ADHomeAppBar extends AppBar {
       leading: Builder(
         builder: (ctx) => IconButton(
           icon: Icon(Icons.build),
-          onPressed: () => Scaffold.of(ctx).openDrawer(),
+          onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
   );

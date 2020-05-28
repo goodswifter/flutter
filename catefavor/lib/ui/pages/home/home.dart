@@ -1,4 +1,3 @@
-import 'package:catefavor/ui/pages/home/drawer/home_drawer.dart';
 import 'package:catefavor/ui/pages/home/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,6 @@ class ADHomePage extends StatelessWidget {
     return Scaffold(
       appBar: ADHomeAppBar(context),
       body: ADHomeContent(),
-      drawer: ADHomeDrawer(),
     );
   }
 }

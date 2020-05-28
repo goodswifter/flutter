@@ -1,3 +1,4 @@
+import 'package:catefavor/ui/pages/home/drawer/home_drawer.dart';
 import 'package:catefavor/ui/pages/main/initialize_item.dart';
 import 'package:flutter/material.dart';
 import '../../../core/extension/int_extension.dart';
@@ -27,6 +28,7 @@ class _ADMainPageState extends State<ADMainPage> {
           setState(() => _currentIndex = index);
         },
       ),
+      drawer: ADHomeDrawer(),
     );
   }
 }

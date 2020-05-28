@@ -1,3 +1,4 @@
+import 'package:catefavor/ui/pages/home/drawer/filter/filter.dart';
 import 'package:flutter/material.dart';
 import 'package:catefavor/core/extension/int_extension.dart';
 
@@ -12,7 +13,7 @@ class ADHomeDrawer extends StatelessWidget {
             Navigator.of(context).pop();
           }),
           buildListTile(context, Icon(Icons.settings), "过滤", () {
-
+            Navigator.of(context).pushNamed(ADFilterPage.routeName);
           }),
         ],
       ),
