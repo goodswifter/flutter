@@ -84,7 +84,10 @@ class ADMealContentItem extends StatelessWidget {
             title,
             textColor: favorColor,
           ),
-          onTap: () => favorVM.handleMeals(_meal),
+//          onTap: () => favorVM.handleMeals(_meal),
+          onTap: () {
+            favorVM.handleMeals(_meal);
+          },
         );
       },
     );

@@ -8,12 +8,12 @@ class ADFavorContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ADFavorViewModel>(
       builder: (ctx, favorVM, child) {
-        if (favorVM.favorMeals.length == 0) {
-          return Center(child: Text("为收藏美食"),);
+        if (favorVM.meals.length == 0) {
+          return Center(child: Text("未收藏美食"),);
         }
         return ListView.builder(
-          itemCount: favorVM.favorMeals.length,
-          itemBuilder: (ctx, index) => ADMealContentItem(favorVM.favorMeals[index]),
+          itemCount: favorVM.meals.length,
+          itemBuilder: (ctx, index) => ADMealContentItem(favorVM.meals[index]),
         );
       },
     );

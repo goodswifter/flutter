@@ -1,5 +1,7 @@
+import 'package:catefavor/core/viewmodel/filter_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:catefavor/core/extension/int_extension.dart';
+import 'package:provider/provider.dart';
 
 class ADFilterContent extends StatelessWidget {
   @override
@@ -21,21 +23,27 @@ class ADFilterContent extends StatelessWidget {
   }
 
   Widget buildChoiceList() {
-    return ListView(
-      children: <Widget>[
-        buildListTile("无谷蛋白", "无谷蛋白", filterVM.isGlutenFree, (value) {
-          filterVM.isGlutenFree = value;
-        }),
-        buildListTile("不含乳糖", "不含乳糖", filterVM.isLactoseFree, (value) {
-          filterVM.isLactoseFree = value;
-        }),
-        buildListTile("素食主义", "素食主义", filterVM.isVegetarian, (value) {
-          filterVM.isVegetarian = value;
-        }),
-        buildListTile("严格素食主义", "严格素食主义", filterVM.isVegan, (value) {
-          filterVM.isVegan = value;
-        }),
-      ],
+    return Expanded(
+      child: Consumer<ADFilterViewModel>(
+        builder: (ctx, filterVM, child) {
+          return ListView(
+            children: <Widget>[
+              buildListTile("无谷蛋白", "无谷蛋白", filterVM.isGlutenFree, (value) {
+                filterVM.isGlutenFree = value;
+              }),
+              buildListTile("不含乳糖", "不含乳糖", filterVM.isLactoseFree, (value) {
+                filterVM.isLactoseFree = value;
+              }),
+              buildListTile("素食主义", "素食主义", filterVM.isVegetarian, (value) {
+                filterVM.isVegetarian = value;
+              }),
+              buildListTile("严格素食主义", "严格素食主义", filterVM.isVegan, (value) {
+                filterVM.isVegan = value;
+              }),
+            ],
+          );
+        },
+      ),
     );
   }
 

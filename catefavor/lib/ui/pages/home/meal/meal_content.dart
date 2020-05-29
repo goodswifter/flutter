@@ -16,9 +16,12 @@ class ADMealContent extends StatelessWidget {
 class ADMealContentSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final category = ModalRoute.of(context).settings.arguments as ADCategoryModel;
+    final category =
+        ModalRoute.of(context).settings.arguments as ADCategoryModel;
     return Selector<ADMealViewModel, List<ADMealModel>>(
-      selector: (ctx, mealVM) => mealVM.meals.where((meal) => meal.categories.contains(category.id)).toList(),
+      selector: (ctx, mealVM) => mealVM.meals
+          .where((meal) => meal.categories.contains(category.id))
+          .toList(),
       shouldRebuild: (prev, next) => !ListEquality().equals(prev, next),
       builder: (ctx, meals, child) {
         return ListView.builder(
@@ -31,7 +34,6 @@ class ADMealContentSelector extends StatelessWidget {
     );
   }
 }
-
 
 //class ADMealContentConsumer extends StatelessWidget {
 //  @override

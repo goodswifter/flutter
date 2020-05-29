@@ -1,5 +1,6 @@
 import 'package:catefavor/core/router/router.dart';
 import 'package:catefavor/core/viewmodel/favor_view_model.dart';
+import 'package:catefavor/core/viewmodel/filter_view_model.dart';
 import 'package:catefavor/core/viewmodel/meal_view_model.dart';
 import 'package:catefavor/ui/shared/app_theme.dart';
 import 'package:catefavor/ui/shared/size_fit.dart';
@@ -9,8 +10,21 @@ import 'package:provider/provider.dart';
 main() => runApp(
   MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (ctx) => ADMealViewModel(),),
-      ChangeNotifierProvider(create: (ctx) => ADFavorViewModel(),),
+      ChangeNotifierProvider(create: (ctx) => ADFilterViewModel(),),
+      ChangeNotifierProxyProvider<ADFilterViewModel, ADMealViewModel>(
+        create: (ctx) => ADMealViewModel(),
+        update: (ctx, filterVM, mealVM) {
+          mealVM.updateFilterVM(filterVM);
+          return mealVM;
+        },
+      ),
+      ChangeNotifierProxyProvider<ADFilterViewModel, ADFavorViewModel>(
+        create: (ctx) => ADFavorViewModel(),
+        update: (ctx, filterVM, favorVM) {
+          favorVM.updateFilterVM(filterVM);
+          return favorVM;
+        },
+      ),
     ],
     child: MyApp(),
   )
