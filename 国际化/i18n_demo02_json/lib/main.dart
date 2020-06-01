@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i18n_demo01/i18n/localizations_init.dart';
+import 'package:i18n_demo02/i18n/localizations_init.dart';
 
 main() => runApp(MyApp());
 
@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
 class ADHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print(ADLocalizations.of(context).pickTime);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(ADLocalizations.of(context).title),

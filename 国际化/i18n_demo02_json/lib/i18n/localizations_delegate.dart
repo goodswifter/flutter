@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:i18n_demo01/i18n/localizations_init.dart';
+import 'package:i18n_demo02/i18n/localizations_init.dart';
 
 class ADLocalizationsDelegate extends LocalizationsDelegate<ADLocalizations> {
   static ADLocalizationsDelegate delegate = ADLocalizationsDelegate();
@@ -14,8 +14,10 @@ class ADLocalizationsDelegate extends LocalizationsDelegate<ADLocalizations> {
 
   @override
   // 当Locale发生改变时（语言环境），加载对应的HYLocalizations资源
-  Future<ADLocalizations> load(Locale locale) {
-    return SynchronousFuture(ADLocalizations(locale));
+  Future<ADLocalizations> load(Locale locale) async {
+    final localization = ADLocalizations(locale);
+    await localization.loadi18nJSON();
+    return localization;
   }
 
   @override
