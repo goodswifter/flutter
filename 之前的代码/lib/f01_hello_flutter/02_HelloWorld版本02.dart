@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
 class ADHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(title: Text("第一个Flutter程序")),
       body: ADHomeBody(),

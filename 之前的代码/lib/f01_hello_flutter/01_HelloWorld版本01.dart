@@ -6,13 +6,22 @@ main(List<String> args) {
       appBar: AppBar(
         title: Text("第一个Flutter应用"),
       ),
-      body: Center(
+      body: ADHomeBody(),
+    ),
+  ));
+}
+
+class ADHomeBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
         child: Text(
           "Hello World",
           textDirection: TextDirection.ltr,
-          style: TextStyle(fontSize: 36),
+          style: TextStyle(fontSize: 36, color: Colors.green),
         ),
       ),
-    ),
-  ));
+    );
+  }
 }

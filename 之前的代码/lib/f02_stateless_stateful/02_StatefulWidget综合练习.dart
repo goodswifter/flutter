@@ -75,7 +75,7 @@ class _ADHomeContentState extends State<ADHomeContent> {
           },
         ),
         RaisedButton(
-          child: Text("-", style: addBtnStyle,),
+          child: Text("-", style: minusBtnStyle,),
           color: Colors.green,
           onPressed: () {
             setState(() {

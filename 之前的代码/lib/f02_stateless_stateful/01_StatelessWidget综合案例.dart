@@ -48,7 +48,7 @@ class ADHomeProductItem extends StatelessWidget {
 
   final titleStyle = TextStyle(fontSize: 26, color: Colors.red);
   final descStyle = TextStyle(fontSize: 20, color: Colors.green);
-
+  
   final borderSize = BorderSide().copyWith(color: Colors.green, width: 10);
 
   @override
