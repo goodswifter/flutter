@@ -3,77 +3,58 @@ import 'package:flutter/material.dart';
 main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp() {
-    print("myapp - con");
-  }
-
   @override
   Widget build(BuildContext context) {
-    print("myapp - build");
-    return MaterialApp(home: ADHomeDemo());
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("按钮Widget"),
+        ),
+        body: ADHomeBody(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => print("floatingActionButton - Click"),
+          child: Icon(Icons.add),
+        ),
+        // FloatingActionButton位置设置
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      ),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
-class ADHomeDemo extends StatefulWidget {
-  ADHomeDemo({Key key}) : super(key: key);
-
-  @override
-  _ADHomeDemoState createState() => _ADHomeDemoState();
-}
-
-class _ADHomeDemoState extends State<ADHomeDemo> {
+class ADHomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print("ADHomeDemoState - build");
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("statefulWidget的生命周期"),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [ADHomeContent()],
-      ),
-      floatingActionButton: RaisedButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            ADHomeContent();
-          });
-        },
+    return Container(
+      child: Column(
+        children: [
+          // 网络图片
+          NetworkImageWidget(),
+        ],
       ),
     );
   }
 }
 
-class ADHomeContent extends StatefulWidget {
-  ADHomeContent({Key key}) : super(key: key);
+class NetworkImageWidget extends StatelessWidget {
+  const NetworkImageWidget({Key key}) : super(key: key);
 
-  @override
-  _ADHomeContentState createState() => _ADHomeContentState();
-}
-
-class _ADHomeContentState extends State<ADHomeContent> {
-  var _counter = 0;
-
-  /// TODO: 什么时候调用?
-  /// 当父Widget触发重建（rebuild）时，系统会调用didUpdateWidget方法；
-  @override
-  void didUpdateWidget(ADHomeContent oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    print("ADHomeContentState - didUpdateWidget");
-  }
+  final String imageURL =
+      "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2Fday_110915%2F1109151356c0717d7e6a91e985.jpg&refer=http%3A%2F%2Fattachments.gfan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617270747&t=b6ab76d4e2c4cebdf8a00470424e5f29";
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      RaisedButton(
-          child: Text("+"),
-          onPressed: () {
-            setState(() {
-              _counter++;
-            });
-          }),
-      Text("数字: $_counter"),
-    ]);
+    return Container(
+      child: Image(
+        image: NetworkImage(imageURL),
+        width: 300,
+        height: 200,
+        fit: BoxFit.contain,
+        repeat: ImageRepeat.repeatY,
+        // 范围(-1, 1)
+        alignment: Alignment(0, 0),
+      ),
+    );
   }
 }

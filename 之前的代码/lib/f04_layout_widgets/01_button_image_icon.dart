@@ -43,9 +43,9 @@ class ButtonExtensionDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 1.默认情况下Button上下有一定的间距
-    // 2.Button变小: ButtonTheme
-    // 3.去除Button的内边距
+    // 1. 默认情况下Button上下有一定的间距
+    // 2. Button变小: ButtonTheme
+    // 3. 去除Button的内边距
     return Column(
       children: <Widget>[
         ButtonTheme(
@@ -56,7 +56,7 @@ class ButtonExtensionDemo extends StatelessWidget {
             color: Colors.red,
             textColor: Colors.white,
             // 设置为MaterialTapTargetSize.shrinkWrap时，button距顶部距离为0；
-            // 设置为MaterialTapTargetSize.padded时距顶部有一个距离
+            // 设置为MaterialTapTargetSize.padded时距顶部和下部有一个距离
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             child: Icon(
               Icons.pets,
