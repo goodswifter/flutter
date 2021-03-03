@@ -32,10 +32,6 @@ class ContainerDemo extends StatelessWidget {
 }
 
 class PaddingDemo extends StatelessWidget {
-  const PaddingDemo({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Column(
