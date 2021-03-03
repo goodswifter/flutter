@@ -119,7 +119,7 @@ class ADPasswordTF extends StatelessWidget {
       controller: passwordCtrl,
       decoration: InputDecoration(
         labelText: "password",
-        icon: Icon(Icons.person),
+        icon: Icon(Icons.lock),
         hintText: "请输入密码",
         filled: true,
         fillColor: Colors.red[100],
