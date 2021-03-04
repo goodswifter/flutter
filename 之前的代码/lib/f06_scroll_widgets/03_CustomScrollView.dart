@@ -31,10 +31,6 @@ class ADHomeContent extends StatelessWidget {
 }
 
 class CustomScrollView02 extends StatelessWidget {
-  const CustomScrollView02({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: <Widget>[
@@ -55,12 +51,20 @@ class CustomScrollView02 extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 8,
             mainAxisSpacing: 8,
-            childAspectRatio: 2),
-        delegate: SliverChildBuilderDelegate((BuildContext ctx, int int) {
-          return Container(
-              color: Color.fromARGB(255, Random().nextInt(256),
-                  Random().nextInt(256), Random().nextInt(256)));
-        }, childCount: 10),
+            childAspectRatio: 2,),
+        delegate: SliverChildBuilderDelegate(
+          (BuildContext ctx, int int) {
+            return Container(
+              color: Color.fromARGB(
+                255,
+                Random().nextInt(256),
+                Random().nextInt(256),
+                Random().nextInt(256),
+              ),
+            );
+          },
+          childCount: 10,
+        ),
       ),
       SliverList(
         delegate: SliverChildBuilderDelegate((BuildContext ctx, int index) {
@@ -75,10 +79,6 @@ class CustomScrollView02 extends StatelessWidget {
 }
 
 class CustomScrollView01 extends StatelessWidget {
-  const CustomScrollView01({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -92,12 +92,12 @@ class CustomScrollView01 extends StatelessWidget {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3, mainAxisSpacing: 10, crossAxisSpacing: 10),
               delegate:
-              SliverChildBuilderDelegate((BuildContext ctx, int index) {
+                  SliverChildBuilderDelegate((BuildContext ctx, int index) {
                 return Container(
                   color: Color.fromARGB(255, Random().nextInt(256),
-                      Random().nextInt(256), Random().nextInt(256)),
+                      Random().nextInt(256), Random().nextInt(256),),
                 );
-              }, childCount: 50),
+              }, childCount: 50,),
             ),
           ),
         )

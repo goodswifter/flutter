@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("单子布局Widget"),
+          title: Text("Flutter"),
         ),
         body: ADLoginPage(),
       ),

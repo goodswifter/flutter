@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 main() => runApp(MyApp());
@@ -44,7 +42,7 @@ class _ControllerDemoState extends State<ControllerDemo> {
     // 添加监听
     _controller.addListener(() {
       setState(() {
-        print(_controller.offset); //打印滚动位置
+        print(_controller.offset); // 打印滚动位置
         setState(() {
           _showToTopBtn = _controller.offset >= 1000;
         });

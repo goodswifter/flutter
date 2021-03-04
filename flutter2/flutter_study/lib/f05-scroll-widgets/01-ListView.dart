@@ -10,18 +10,14 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("ListView"),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () => print("FloatingActionButton Click"),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        body: ADHomeContent(),
+        body: ADHomeBody(),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class ADHomeContent extends StatelessWidget {
+class ADHomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListViewDemo03();
@@ -56,7 +52,7 @@ class ListViewDemo03 extends StatelessWidget {
 }
 
 /// 2. 通过ListView.builder创建
-/// 优点: 可以复用item, 提高效率
+/// 优点: 懒加载item, 显示的时候再加载, 提高效率
 class ListViewDemo02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
