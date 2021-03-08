@@ -77,12 +77,12 @@ class NotificationDemoState extends State<NotificationDemo> {
   }
 }
 
-class ControllerPage extends StatefulWidget {
+class ControllerDemo extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => ControllerPageState();
+  State<StatefulWidget> createState() => ControllerDemoState();
 }
 
-class ControllerPageState extends State<ControllerPage> {
+class ControllerDemoState extends State<ControllerDemo> {
   ScrollController _controller;
   bool _isShowTop = false;
 
