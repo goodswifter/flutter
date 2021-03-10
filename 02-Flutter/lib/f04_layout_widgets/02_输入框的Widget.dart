@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class TextFieldDemo extends StatelessWidget {
   const TextFieldDemo({
     Key key,
-    @required this.usernameTextEditingController,
-    @required this.passwordTextEditingController,
+    this.usernameTextEditingController,
+    this.passwordTextEditingController,
   }) : super(key: key);
 
   final TextEditingController usernameTextEditingController;

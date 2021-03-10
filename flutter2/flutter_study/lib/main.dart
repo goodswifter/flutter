@@ -1,22 +1,56 @@
 import 'package:flutter/material.dart';
-import 'f08-douban/pages/main/douban_main.dart';
 
 main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final GlobalKey<_ADHomeContentState> globalKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Demo",
-      // 主题颜色
-      theme: ThemeData(
-        // primaryColor: Colors.green,
-        // 点击效果取消
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter Demo"),
+        ),
+        floatingActionButton: false
+            ? null
+            : FloatingActionButton(
+                child: Icon(Icons.gesture),
+                onPressed: () {
+                  print(globalKey.currentState.message);
+                  print(globalKey.currentState.widget.name);
+                  globalKey.currentState.test();
+                },
+              ),
+//        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
+        body: ADHomeContent(
+          key: globalKey,
+        ),
       ),
-      home: ADMainPage(),
-      debugShowCheckedModeBanner: false,
     );
+  }
+}
+
+class ADHomeContent extends StatefulWidget {
+  final String name = "123";
+
+  ADHomeContent({Key key}) : super(key: key);
+
+  @override
+  _ADHomeContentState createState() => _ADHomeContentState();
+}
+
+class _ADHomeContentState extends State<ADHomeContent> {
+  final String message = "abc";
+  final bool isShow = false;
+
+  void test() {
+    print("testtesttest");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(message);
   }
 }

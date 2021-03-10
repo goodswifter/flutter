@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
         ),
 //        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 
-        body: ADHomeContent(key: globalKey,),
+        body: ADHomeContent(
+          key: globalKey,
+        ),
       ),
     );
   }
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
 class ADHomeContent extends StatefulWidget {
   final String name = "123";
 
-  ADHomeContent({Key key}): super(key: key);
+  ADHomeContent({Key key}) : super(key: key);
 
   @override
   _ADHomeContentState createState() => _ADHomeContentState();
@@ -39,6 +41,7 @@ class ADHomeContent extends StatefulWidget {
 
 class _ADHomeContentState extends State<ADHomeContent> {
   final String message = "abc";
+  final bool isShow = false;
 
   void test() {
     print("testtesttest");

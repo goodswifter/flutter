@@ -36,11 +36,13 @@ class _ADHomePageState extends State<ADHomePage> {
         }),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-
       body: ListView(
         children: names.map((item) {
 //          return ListItemFul(item, key: ValueKey(item),);
-          return ListItemFul(item, key: UniqueKey(),);
+          return ListItemFul(
+            item,
+            key: UniqueKey(),
+          );
         }).toList(),
       ),
     );
@@ -51,14 +53,15 @@ class _ADHomePageState extends State<ADHomePage> {
 class ListItemFul extends StatefulWidget {
   final String name;
 
-  ListItemFul(this.name, {Key key}): super(key: key);
+  ListItemFul(this.name, {Key key}) : super(key: key);
 
   @override
   _ListItemFulState createState() => _ListItemFulState();
 }
 
 class _ListItemFulState extends State<ListItemFul> {
-  final Color randomColor = Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256));
+  final Color randomColor = Color.fromARGB(
+      255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256));
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +76,8 @@ class _ListItemFulState extends State<ListItemFul> {
 // 01
 class ListItemLess extends StatelessWidget {
   final String name;
-  final Color randomColor = Color.fromARGB(255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256));
+  final Color randomColor = Color.fromARGB(
+      255, Random().nextInt(256), Random().nextInt(256), Random().nextInt(256));
 
   ListItemLess(this.name);
 

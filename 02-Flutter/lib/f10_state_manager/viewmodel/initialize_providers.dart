@@ -5,6 +5,10 @@ import 'counter_view_model.dart';
 import 'user_view_model.dart';
 
 List<SingleChildWidget> providers = [
-  ChangeNotifierProvider(create: (ctx) => ADCounterViewModel(),),
-  ChangeNotifierProvider(create: (ctx) => ADUserViewModel(UserInfo('zad', 18, 'url')),),
+  ChangeNotifierProvider(
+    create: (ctx) => ADCounterViewModel(),
+  ),
+  ChangeNotifierProvider(
+    create: (ctx) => ADUserViewModel(UserInfo('zad', 18, 'url')),
+  ),
 ];

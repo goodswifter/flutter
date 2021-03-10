@@ -155,7 +155,7 @@ class ADHomeMovieItem extends StatelessWidget {
     // 导演
     final directorString = movie.director.name;
     // 演员
-    List<Actor> casts = movie.casts;
+    // List<Actor> casts = movie.casts;
     final castsString = movie.casts.map((items) => items.name).join(" ");
 
     return Text(

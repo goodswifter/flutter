@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
           onPressed: () => print("FloatingActionButton Click"),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-
         body: ADHomeContent(),
       ),
     );
@@ -33,11 +32,12 @@ class _ADHomeContentState extends State<ADHomeContent> {
     // 1.自己写Widget
     // 2.某些Widget中会创建RenderObject
     // 3.每一个Widget都会创建一个Element对象
-    // 4.1.ComponentElement: mount方法 -> firstBuild -> rebuild -> performBuild -> build -> _widget.build
-    // 4.2.RenderObjectElement: mount方法 -> _widget.createRenderObject
-    // 4.3.StatefulElement:
+    // 4.1. ComponentElement: mount方法 -> firstBuild -> rebuild -> performBuild -> build -> _widget.build
+    // ComponetElement: StatefulElement和StatelessElement
+    // 4.1.1 StatefulElement:
     // * 构造方法中 _state = widget.createState()
     // * _state._widget = widget;
+    // 4.2. RenderObjectElement: mount方法 -> _widget.createRenderObject
 
     // 所有的Widget都会创建一个对应的Element对象
 //    StatelessElement;
@@ -55,6 +55,6 @@ class _ADHomeContentState extends State<ADHomeContent> {
     // Padding -> createRenderObject -> RenderPadding -> RenderBox -> RenderObject
 //    Padding();
 //    RenderObjectWidget
-    return Padding();
+    return Text("哈哈");
   }
 }

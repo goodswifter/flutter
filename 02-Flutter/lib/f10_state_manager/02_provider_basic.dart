@@ -22,10 +22,9 @@ import 'viewmodel/counter_view_model.dart';
 
 main() {
   // 2. 在应用程序的顶层包装ChangeNotifierProvider类
-  runApp(
-      ChangeNotifierProvider(
-        create: (ctx) => ADCounterViewModel(),
-        child: MyApp(),
+  runApp(ChangeNotifierProvider(
+    create: (ctx) => ADCounterViewModel(),
+    child: MyApp(),
   ));
 }
 
