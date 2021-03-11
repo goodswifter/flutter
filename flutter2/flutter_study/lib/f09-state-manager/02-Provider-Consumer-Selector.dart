@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/f09-state-manager/viewmodel/counter_view_model.dart';
-import 'package:flutter_study/f09-state-manager/viewmodel/initialize_providers.dart';
-import 'package:flutter_study/f09-state-manager/viewmodel/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 main() {
-  runApp(MultiProvider(
-    providers: providers,
-    child: MyApp(),
-  ));
+  runApp(
+    ChangeNotifierProvider(
+      create: (ctx) => CounterViewModel(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -41,11 +41,24 @@ class ADHomePage extends StatelessWidget {
         selector: (ctx, counterVM) => counterVM,
         shouldRebuild: (prev, next) => false,
       ),
+      // floatingActionButton: Consumer<CounterViewModel>(
+      //   child: Icon(Icons.add),
+      //   builder: (context, counterVM, child) {
+      //     print("_ADHomePageState - Consumer - builder");
+      //     return FloatingActionButton(
+      //       child: child,
+      //       onPressed: () {
+      //         counterVM.counter++;
+      //       },
+      //     );
+      //   },
+      // ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ADShowData01(),
+            ADShowData02(),
           ],
         ),
       ),
@@ -53,16 +66,36 @@ class ADHomePage extends StatelessWidget {
   }
 }
 
-class ADShowData01 extends StatelessWidget {
+class ADShowData01 extends StatefulWidget {
+  @override
+  _ADShowData01State createState() => _ADShowData01State();
+}
+
+class _ADShowData01State extends State<ADShowData01> {
+  @override
+  Widget build(BuildContext context) {
+    print("_ADShowData01State - build");
+    int counter = Provider.of<CounterViewModel>(context).counter;
+    return Card(
+      child: Text(
+        "counter: $counter",
+        style: TextStyle(fontSize: 30),
+      ),
+      color: Colors.red,
+    );
+  }
+}
+
+class ADShowData02 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("ADShowData02 - build");
     return Card(
-      child: Consumer2<CounterViewModel, UserInfoViewModel>(
-        builder: (context, counterVM, userInfoVM, child) {
+      child: Consumer<CounterViewModel>(
+        builder: (context, counterVM, child) {
           print("ADShowData02- Consumer - builder");
           return Text(
-            "counter: ${counterVM.counter} name: ${userInfoVM.userInfo.name}",
+            "counter: ${counterVM.counter}",
             style: TextStyle(fontSize: 30),
           );
         },
